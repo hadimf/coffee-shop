@@ -211,3 +211,42 @@
 		direction: rtl;
 	}
 }
+
+.menu-panel {
+	z-index: 40;
+	transform: translateX(100%);
+	transition: transform 300ms ease;
+}
+
+.menu-panel.is-open,
+.cart-panel.is-open {
+	transform: translateX(0);
+}
+
+.cart-panel {
+	z-index: 40;
+	transform: translateX(-100%);
+	transition: transform 300ms ease;
+}
+
+.overlay {
+	z-index: 30;
+}
+
+.submenu-panel {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 300ms ease;
+}
+
+.submenu--open + .submenu-panel {
+	max-height: 12rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.menu-panel,
+	.cart-panel,
+	.submenu-panel {
+		transition-duration: 0.01ms;
+	}
+}
